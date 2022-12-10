@@ -50,10 +50,8 @@ fn main() -> io::Result<()> {
     let mut p1_start_of_packet = 0;
     let mut p2_start_of_message = 0;
 
-    let mut chars_iter = input.chars().enumerate();
-
     let mut p1_done = false;
-    while let Some((i, c)) = chars_iter.next() {
+    for (i, c) in input.chars().enumerate() {
         if !p1_done {
             if p1_packer_finder.next_inp(c) {
                 p1_start_of_packet = i + 1;
